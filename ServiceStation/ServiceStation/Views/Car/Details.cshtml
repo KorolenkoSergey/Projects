@@ -1,0 +1,50 @@
+﻿@model ServiceStation.Car
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Car</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Make)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Make)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Model)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Model)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Year)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Year)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.VIN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.VIN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Client.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Client.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IdCar })
+    @Html.ActionLink("Back to List", "Index")
+</p>

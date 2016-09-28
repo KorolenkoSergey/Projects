@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ServiceStation.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Information about cars</h2>
+
+<p>
+    @Html.ActionLink("Create new car", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCar }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCar }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCar }) |
+            @Html.ActionLink("Car orders", "Orders", new { id=item.IdCar })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Home page", "Index", "Home")
+</div>

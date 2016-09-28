@@ -1,0 +1,43 @@
+﻿@model ServiceStation.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         Order amount
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderAmount)
+    </div>
+
+    <div class="display-label">
+         Order status
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderStatus)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Car.Make)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Car.Make)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IdOrder })
+    @Html.ActionLink("Back to List", "Index")
+</p>

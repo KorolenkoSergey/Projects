@@ -1,0 +1,75 @@
+﻿@model ServiceStation.Car
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Car</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdCar)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdCar)
+            @Html.ValidationMessageFor(model => model.IdCar)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Make)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Make)
+            @Html.ValidationMessageFor(model => model.Make)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Model)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Model)
+            @Html.ValidationMessageFor(model => model.Model)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Year)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Year)
+            @Html.ValidationMessageFor(model => model.Year)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VIN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VIN)
+            @Html.ValidationMessageFor(model => model.VIN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdClient, "Client")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdClient", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdClient)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

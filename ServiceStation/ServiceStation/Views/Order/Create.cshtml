@@ -1,0 +1,67 @@
+﻿@model ServiceStation.Order
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Order</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdOrder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdOrder)
+            @Html.ValidationMessageFor(model => model.IdOrder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            Order amount
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderAmount)
+            @Html.ValidationMessageFor(model => model.OrderAmount)
+        </div>
+
+        <div class="editor-label">
+            Order status
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderStatus)
+            @Html.ValidationMessageFor(model => model.OrderStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdCar, "Car")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("IdCar", String.Empty)
+            @Html.ValidationMessageFor(model => model.IdCar)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

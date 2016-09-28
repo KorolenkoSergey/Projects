@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+     @Styles.Render("~/Content/css")
+     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .header_black {
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 33px;
+            border-bottom: 1px solid #000;
+        }
+        .wrapper {
+            margin: 0 auto;
+            width: 976px;
+            position: relative;
+            padding-top: 50px;
+            padding-bottom: 7px;
+            font-size: 13px;
+            height: auto;
+        }
+        .content {
+            border-radius: 10px;
+            border: 1px solid rgb(14, 14, 14);
+        }
+        .header {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            height: 90px;
+        }
+        .footer {
+            padding: 15px 0 5px 0;
+            width: 100%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_black"></div>
+    <div class="wrapper">
+        <div class="content">
+             @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+               @RenderBody()
+            </section>
+        </div>
+        <div class="header">
+             <nav>
+                <ul id="menu">
+                   <li>@Html.ActionLink("Home page", "Index", "Home")</li>
+                   <li>@Html.ActionLink("Check clients", "Index", "NewClient")</li>
+                   <li>@Html.ActionLink("Clients", "Index", "Client")</li>
+                   <li>@Html.ActionLink("Cars", "Index", "Car")</li>
+                   <li>@Html.ActionLink("Orders", "Index", "Order")</li>        
+                </ul>
+            </nav>
+        </div>
+        <div class="footer">
+            <p>&copy; @DateTime.Now.Year Created by Sergey Korolenko</p>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
